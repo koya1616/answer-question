@@ -76,3 +76,9 @@ gem 'carrierwave' #ファイルをアップロード
 gem 'ransack' #検索
 gem 'data-confirm-modal' # data: { confirm: }のダイアログをbootstrapを使ってカスタマイズ
 gem 'rack-mini-profiler', require: false # SQL、パフォーマンスのチェック
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
