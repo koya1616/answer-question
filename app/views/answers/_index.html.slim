@@ -1,0 +1,32 @@
+.answer_container
+  .container
+    .row
+      / いいね
+      = render partial: 'likes/form', locals: { likeable: answer }
+  .text-center
+      
+    / 回答部分
+    .row
+      .col-8
+        = render partial: 'users/user_image_link', locals: { user: answer.user }
+        = link_to answer.user.name, user_path(answer.user.id)
+      .col-4
+        - if current_user == answer.user
+          = link_to icon('fas', 'edit'), edit_answer_path(answer.id), class: "edit-a-#{answer.id} mr-4"
+          = link_to icon('fas', 'trash'), answer_path(answer.id), method: :delete, class: "delete-a-#{answer.id}"
+
+    / 回答本文
+    hr
+    = render partial: 'shared/content', locals: { content: answer.content }
+
+    
+    / コメント一覧表示
+    = render partial: 'comments/index', locals: { comments: answer.comments }
+
+    / コメント入力フォーム
+    - if user_signed_in?
+      button data-toggle='collapse' data-target='#collapse_comment_answer' aria-expanded='false' aria-controls='collapse_comment' 
+        p.bold_texts #{icon('far', 'comment')}コメントを投稿
+      .collapse#collapse_comment_answer
+        hr
+        = render partial: 'comments/form', locals: { commentable: answer, comment: current_user.comments.build }

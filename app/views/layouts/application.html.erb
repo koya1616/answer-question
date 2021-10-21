@@ -1,0 +1,28 @@
+<doctype html>
+<html>
+  
+  <head>
+    <title><%= full_title(yield(:title)) %></title> <!--参照：https://qiita.com/kagamiya9/items/fbc86a44deb1de4e8bfb-->
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  </head>  
+    
+  <body>
+    
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+    
+    <main>
+      <%= render 'shared/flash' %>
+      <%= yield %>
+      <%= render partial: 'layouts/new_button' %>
+    </main>  
+    
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>  
+  </body>
+</html>  

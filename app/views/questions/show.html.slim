@@ -1,0 +1,61 @@
+/ questions/show.html.sl
+- provide(:title, "#{@question.title}")
+.question_container
+  / タイトル
+  .mb-5.text-center
+    h1 #{@question.title}
+  .container.text-center
+    br
+    .container
+      .row
+        .row.mr-2
+          = render partial: 'likes/form', locals: { likeable: @question }
+        / ストックボタン
+        = render partial: 'stocks/form', locals: { question: @question }
+    hr
+    .row
+      .col-6
+        = render partial: 'users/user_image_link', locals: { user: @question.user }
+        = link_to @question.user.name, user_path(@question.user.id)
+      .col-3
+        = distance_of_time_in_words_to_now(@question.created_at)
+      .col-3
+        -if current_user == @question.user
+          = link_to icon('fas', 'edit'), edit_question_path(@question.id), class: "edit-q-#{@question.id} mr-2"
+          = link_to icon('fas', 'trash'), question_path(@question.id), method: :delete, class: "delete-q-#{@question.id}"
+      br
+    hr
+    / 本文
+    = render partial: 'shared/content', locals: { content: @question.content }
+    /カテゴリー表示
+    = render partial: 'category/tag', locals: { taggable: @question }
+    br
+    /質問のコメント表示
+    = render partial: 'comments/index', locals: { comments: @question.comments }
+    / コメント、回答入力フォーム
+    - if user_signed_in?
+      .tab_button_container
+        .tab_button
+          button data-toggle='collapse' data-target='#collapse_comment_question' aria-expanded='false' aria-controls='collapse_comment' 
+            p.bold_texts #{icon('far', 'comment')}コメントを投稿
+        .tab_button
+          button data-toggle='collapse' data-target='#collapse_answer' aria-expanded='false' aria-controls='collapse_answer'
+            p.bold_texts #{icon('far', 'paper-plane')} 回答
+      .collapse#collapse_comment_question
+        hr
+        = render partial: 'comments/form', locals: { commentable: @question, comment: current_user.comments.build }
+      .collapse#collapse_answer
+        hr
+        = render partial: 'answers/submit_form', locals: { question: @question }
+
+/回答表示
+h2.text-center.font-weight-bold.my-3 回答
+= render partial: 'answers/index', collection: @answers, as: :answer, locals: { question: @question }
+
+/ 関連する質問
+.question_index_container
+  h2.text-center.my-3 関連する質問
+  - if @related_questions.present?
+    = render partial: 'questions/question_index', collection: @related_questions, as: :question
+  - else
+    p.font-weight-bold.text-center 関連する質問はありません

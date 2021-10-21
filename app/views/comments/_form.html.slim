@@ -1,0 +1,6 @@
+- if user_signed_in?
+  = form_with model: [commentable, comment] do |f|
+    .form-group
+      = f.text_area :content, placeholder: 'コメントを入力(1000文字以内)', class: "comment_form_#{commentable.id} large_text_area", required: true, maxlength: 1000
+    .form-group
+      = f.submit 'コメントする', class: 'btn btn-primary'

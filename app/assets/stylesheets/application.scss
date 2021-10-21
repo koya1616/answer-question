@@ -1,0 +1,407 @@
+@import "bootstrap";
+
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css?family=Corben:700');
+@import url('https://fonts.googleapis.com/css?family=Caveat');
+
+@mixin fontawesome() {
+  width: 25px;
+  height: 30px;
+  font-size: 25px;
+}
+
+@mixin q_and_a_container() {
+  @media screen and (max-width: 699px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 700px) {
+    width: 700px;
+  }
+  padding: 0.5em 1em;
+  margin: 10px auto;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+@mixin basic_container() {
+  margin: auto;
+  @media screen and (min-width: 720px) {
+    width: 720px;
+  }
+  @media screen and (max-width: 719px) {
+    width: 100%;
+  }
+}
+
+@mixin disabled_at($width) {
+  @media screen and (max-width: $width) {
+    display: none;
+  }
+}
+
+.gold {
+  color: gold;
+}
+
+.silver {
+  color: silver;
+}
+
+.copper {
+  color: #bf9224;
+}
+
+.fa-edit .fa-trash .fa-paper-plane .fa-arrow-right {
+  @include fontawesome();
+}
+
+.bold_texts {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: gray;
+}
+
+header {
+  background-color: #66CC33;
+  .navbar-light .navbar-brand {
+    color: #fff;
+  }
+  .navbar-light .navbar-brand:hover {
+    color: lightgray;
+  }
+  .navbar .navbar-nav .nav-link {
+    color: #fff;
+  }
+  .navbar .navbar-nav .nav-link:hover {
+    color: lightgray;
+  }
+}
+
+main {
+  background-color: #f6f6f3;
+}
+
+// kaminariを中央寄せに
+.pagination {
+  justify-content: center;
+}
+
+// いいねボタンのスタイリング
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+.like_btn {
+  @include fontawesome();
+}
+
+// コメント部分
+
+.fa-comment {
+  @include fontawesome();
+}
+
+// いいね、コメントなどの数を表示する部分
+.object_counts {
+  height: 30px;
+  margin-left: 10px;
+}
+
+// 投稿ページ
+.post_container {
+  @include basic_container();
+}
+
+// 質問ページ
+
+.question_container {
+  @include q_and_a_container()
+}
+
+.question_container p {
+  margin: 0; 
+  padding: 0;
+}
+
+.answer_container {
+  @include q_and_a_container()
+}
+
+.answer_container p {
+  margin: 0; 
+  padding: 0;
+}
+
+@mixin new_button() {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  background-color: #007afc;
+  border: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin new_button_text() {
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.new_button_container {
+  position: fixed;
+  right: 10px;
+  bottom: 10%;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.question_button {
+  @include new_button();
+  p {
+    @include new_button_text();
+  }
+}
+
+.post_button {
+  @include new_button();
+  p {
+    @include new_button_text();
+  }
+}
+
+// 質問一覧ページのスタイリング
+.question_index_container {
+  @include basic_container();
+}
+
+.question_each_container {
+  width: 100%;
+  height: auto;
+}
+
+.disabled_at_small {
+  @include disabled_at(799px);
+}
+
+// ユーザーページのスタイリング
+
+.user_container {
+  width: 100%;
+  margin: auto;
+}
+
+.user_border {
+  border: solid 2px #ababab;
+}
+
+// フォーム画面のスタイリング
+
+.form_container {
+  @include basic_container()
+}
+
+@mixin large_form($height) {
+  height: $height;
+  @media screen and (max-width: 399px) {
+    width: 90%;  
+  }
+  @media screen and (min-width: 400px) {
+    width: 400px;  
+  }
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: solid 2px #e8f0fe;
+  border-radius: 5px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea.large_text_area {
+  @include large_form(200px)
+}
+
+input.large_text_field {
+  @include large_form(50px)
+}
+
+.category_container {
+  margin: auto;
+  width: 400px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+  background-color: #f6f6f3;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #66CC33;
+  color: lightgray;
+  text-align: center;
+}
+ 
+/* Custom page CSS
+-------------------------------------------------- */
+ 
+ 
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+// カテゴリーリンク部分
+.category_link {
+  color: white;
+}
+
+// カテゴリーページのスタイリング
+
+.category_index_container {
+  @include basic_container();
+}
+
+//  通知ページのスタイリング
+
+.notification_container {
+  @include basic_container();
+  text-align: center;
+  font-size: 30px;
+}
+
+//  ユーザー一覧ページのスタイリング
+
+.users_container {
+  @include basic_container();
+}
+
+.rank_text {
+  font-size: 30px;
+}
+
+// タブ部分
+
+.exactly {
+  font-family: 'Corben', cursive;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background-color: #e8f0fe;
+}
+
+.nowrap_nav {
+  .nav {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: scroll;
+  }
+}
+
+.tab_button_container {
+  @media screen and (max-width: 560px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 561px) {
+    width: 50%;
+  }
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+// 新着通知の背景色
+
+.new_notification {
+  background-color: #e8f0fe;
+}
+
+.content_container {
+  margin: auto;
+  @media screen and (max-width: 360px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 361px) {
+    width: 360px;
+  }
+  text-align: left;
+}
+
+// エラーメッセージ部分のスタイリング
+
+.alert > ul {
+  list-style: none;
+}
+
+// LP
+.lp {
+  position: relative;
+}
+
+.lp_photo {
+  background-size: cover;
+  width: 100%;
+  height: 700px;
+  opacity: 0.6;
+}
+.lp_container {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  margin: auto;
+  width: 64%;
+  height: 400px;
+  .lp_item {
+    p {
+      font-size: 1.2rem;
+      color: black;
+    }
+    h2 {
+      font-size: 4rem;
+      color: black;
+      font-family: 'Caveat', cursive;
+    }
+    hr {
+      border-top: 3px solid lightgreen;
+    }
+  }
+}
+
+// 管理画面
+
+.admin_body {
+  margin: auto;
+  text-align: center;
+}

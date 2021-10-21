@@ -1,0 +1,40 @@
+<!--<p>＜＜homes/home.html.erb＞＞<p>-->
+<div class="lp">
+
+  <%= image_tag('top.png', class: 'lp_photo') %>
+
+  <div class="lp_container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="lp_item">
+          <div class="text-center" class="font-weight-bold">
+            <p>あなたの疑問がなくなった時</p>
+            <p>exactlyと言おう</p>
+            <p>疑問を種にコミュニティをひろげよう</p>
+            <h2> EXACTLY</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="lp_item">
+              <% if user_signed_in? %>
+                <div class="text-center">
+                  <%= link_to '質問する', new_question_path, class: 'btn btn-success mr-4' %>
+                  <!--%= link_to 'つぶやく', new_post_path, class: 'btn btn-success' %-->
+                <hr>
+                  <%= link_to '質問一覧', questions_path, class: 'btn btn-success mr-4' %>
+                  <!--%= link_to 'つぶやき一覧', posts_path, class: 'btn btn-success' %-->
+                <hr>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </div>
+              <% else %>
+                <div class="text-center">
+                  <%= link_to icon('fas', 'sign-in-alt') + 'ログイン', new_user_session_path, class: 'btn btn-success mr-4' %>
+                  <%= link_to icon('fas', 'user-plus') + '登録', new_user_registration_path, class: 'btn btn-success' %>
+                </div>
+              <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
