@@ -1,5 +1,9 @@
 unless Rails.env.development? || Rails.env.test?
   CarrierWave.configure do |config|
+    config.cache_storage = :fog
+    config.fog_provider = 'fog/aws'
+    config.fog_directory  = 's3-rails-koya'
+    config.asset_host = 'https://s3.amazonaws.com/s3-rails-koya'
     config.fog_credentials = {
       provider: 'AWS',
       aws_access_key_id: Rails.application.credentials.aws[:access_key_id],
@@ -7,8 +11,8 @@ unless Rails.env.development? || Rails.env.test?
       region: 'ap-northeast-1'
     }
 
-    config.fog_directory  = 's3-rails-koya'
-    config.cache_storage = :fog
+    # config.fog_directory  = 's3-rails-koya'
+    # config.cache_storage = :fog
   end
 end
 
