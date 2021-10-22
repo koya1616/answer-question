@@ -73,6 +73,8 @@ gem 'devise-i18n-views' # devise日本語化のため
 gem 'font-awesome-sass'
 gem 'faker' #ダミーデータを自動生成
 gem 'carrierwave' #ファイルをアップロード
+# gem 'fog' #S3
+gem 'fog-aws'
 gem 'ransack' #検索
 gem 'data-confirm-modal' # data: { confirm: }のダイアログをbootstrapを使ってカスタマイズ
 gem 'rack-mini-profiler', require: false # SQL、パフォーマンスのチェック
