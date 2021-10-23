@@ -1,6 +1,8 @@
 # exactly
 <img width="1433" alt="スクリーンショット" src="https://user-images.githubusercontent.com/87183507/138557348-18a401f4-6419-4f08-bd46-dd81733d620a.jpg">
+
 ## URL
+ec2-18-219-171-120.us-east-2.compute.amazonaws.com
 
 ## 概要
 exactlyは誰でも、どんなジャンルの悩みでも解決できるQ&Aサイトです。
