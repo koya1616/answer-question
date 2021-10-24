@@ -2,6 +2,7 @@
 <img width="1433" alt="スクリーンショット" src="https://user-images.githubusercontent.com/87183507/138557348-18a401f4-6419-4f08-bd46-dd81733d620a.jpg">
 
 ## URL
+<!-- ドメイン取得中 -->
 [http://www.exactly.jp](http://18.219.171.120/)
 
 ## 概要
