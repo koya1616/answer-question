@@ -3,7 +3,7 @@
 
 ## URL
 <!-- ドメイン取得中 -->
-[http://www.exactly.jp](http://18.219.171.120/)
+http://www.exactly.jp
 
 ## 概要
 exactlyは誰でも、どんなジャンルの悩みでも解決できるQ&Aサイトです。
