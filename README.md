@@ -2,7 +2,7 @@
 <img width="1433" alt="スクリーンショット" src="https://user-images.githubusercontent.com/87183507/138557348-18a401f4-6419-4f08-bd46-dd81733d620a.jpg">
 
 ## URL
-・[lll]：http://ec2-18-222-4-208.us-east-2.compute.amazonaws.com
+・[http://www.exactly.jp](http://ec2-18-222-4-208.us-east-2.compute.amazonaws.com)
 
 ### ゲストログイン
 - メールアドレス：guest@gmail.com
